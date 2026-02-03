@@ -1,62 +1,96 @@
-< html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Ali Khan | Personal Website</title>
+
   <style>
     :root {
-      --bg: #f4f4f4;
+      --bg: #f5f6fa;
       --card: #ffffff;
-      --text: #222;
+      --text: #1e293b;
+      --muted: #475569;
+      --accent: #2563eb;
     }
+
     * { box-sizing: border-box; }
+
     body {
       margin: 0;
+      padding: 24px;
       font-family: Arial, Helvetica, sans-serif;
       background: var(--bg);
       color: var(--text);
-      padding: 24px;
     }
+
     .container {
-      max-width: 720px;
+      max-width: 760px;
+      margin: auto;
       background: var(--card);
+      border-radius: 14px;
       padding: 24px;
-      margin: 0 auto;
-      border-radius: 12px;
-      box-shadow: 0 6px 24px rgba(0,0,0,.06);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+      border: 1px solid #e2e8f0;
     }
-    h1 {
-      text-align: center;
-      margin-top: 12px;
-      margin-bottom: 16px;
-    }
-    p { line-height: 1.6; margin: 6px 0; }
+
     .profile {
       display: flex;
       justify-content: center;
-      margin-bottom: 12px;
+      margin-bottom: 20px;
     }
+
     .profile img {
-      width: 140px;            /* adjust as you like */
-      height: 140px;
-      object-fit: cover;
+      width: 150px;
+      height: 150px;
       border-radius: 50%;
-      border: 2px solid #eee;
+      object-fit: cover;
+      border: 3px solid #fff;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
     }
-    .label { font-weight: bold; }
+
+    h1 {
+      text-align: center;
+      font-size: 32px;
+      margin-bottom: 8px;
+    }
+
+    .subtitle {
+      text-align: center;
+      color: var(--muted);
+      margin-bottom: 24px;
+      font-size: 14px;
+    }
+
+    p {
+      margin: 6px 0;
+      font-size: 16px;
+      line-height: 1.5;
+    }
+
+    .label {
+      font-weight: bold;
+      color: #0f172a;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 13px;
+      margin-top: 20px;
+      color: var(--muted);
+    }
   </style>
 </head>
-<body>
 
+<body>
   <div class="container">
 
     <div class="profile">
-      <!-- Make sure this path exists exactly (case-sensitive) -->
-      <img src="asset/ali.jpg" alt="Ali Khan profile photo" />
+      <img src="asset/ali.jpg" alt="Ali Khan">
     </div>
 
     <h1>Ali Khan</h1>
+    <p class="subtitle">Information and Communication Engineering</p>
 
     <p><span class="label">Department:</span> Information and Communication Engineering</p>
     <p><span class="label">University:</span> Bangladesh University of Professionals</p>
@@ -64,15 +98,24 @@
     <p><span class="label">School (SSC):</span> Sylhet Cantonment Public School</p>
     <p><span class="label">School (JSC):</span> Sylhet Cantonment Public School</p>
     <p><span class="label">School (PSC):</span> MDC Model Institute</p>
-    <p><span class="label">Location (current):</span> Mirpur 12, Dhaka</p>
-    <p><span class="label">Location (permanent):</span> Cumilla</p>
+    <p><span class="label">Location (Current):</span> Mirpur 12, Dhaka</p>
+    <p><span class="label">Location (Permanent):</span> Cumilla</p>
     <p><span class="label">Country:</span> Bangladesh</p>
     <p><span class="label">Email:</span> md.ali35057@email.com</p>
     <p><span class="label">Phone:</span> 01872641650</p>
     <p><span class="label">Github:</span> smmak07</p>
     <p><span class="label">Instagram:</span> smmak.ali.khan</p>
 
+    <footer>
+      © <span id="year"></span> Ali Khan • Hosted on GitHub Pages
+    </footer>
+
   </div>
+
+  <script>
+    // Auto-update year
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 
 </body>
 </html>
