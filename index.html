@@ -6,6 +6,57 @@
   <title>Ali Khan | Personal Website</title>
 
   <style>
+
+
+
+@keyframes fadeInUp { from { opacity:0; transform:translateY(16px);} to { opacity:1; transform:none;} }
+@keyframes float { 0% {transform:translateY(0);} 50% {transform:translateY(-6px);} 100% {transform:translateY(0);} }
+@keyframes typing { from { width:0; } to { width:28ch; } }
+@keyframes blink { 50% { border-color: transparent; } }
+@keyframes bgMove { 0% {background-position:0% 50%;} 50% {background-position:100% 50%;} 100% {background-position:0% 50%;} }
+@keyframes pulse { 0% {transform:scale(.85); opacity:.55;} 70%,100% {transform:scale(1.15); opacity:0;} }
+
+body { background: linear-gradient(120deg,#eef2ff,#f8fafc,#e0f2fe); background-size:200% 200%; animation:bgMove 12s ease infinite; }
+.container { animation: fadeInUp .8s ease-out both; transition: transform .25s ease, box-shadow .25s ease; }
+.container:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(0,0,0,.12); }
+.profile { position: relative; display:flex; justify-content:center; margin-bottom:20px; }
+.profile::after { content:""; position:absolute; width:170px; height:170px; border-radius:50%; border:2px solid rgba(37,99,235,.35); animation:pulse 2.4s ease-out infinite; }
+.profile img { width:150px; height:150px; border-radius:50%; object-fit:cover; border:3px solid #fff; box-shadow:0 8px 20px rgba(0,0,0,.15); animation: float 4s ease-in-out infinite; }
+.subtitle.type { width:28ch; white-space:nowrap; overflow:hidden; border-right:2px solid #2563eb; animation: typing 3s steps(28), blink .9s step-end infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
     :root {
       --bg: #f5f6fa;
       --card: #ffffff;
@@ -119,6 +170,7 @@
 
 </body>
 </html>
+
 
 
 
