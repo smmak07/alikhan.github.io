@@ -1,178 +1,176 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Ali Khan | Personal Website</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0b1020" />
+  <title>Ali Khan | Personal Website</title>
 
-<style>
-  /* ====== FUTURISTIC THEME TOKENS ====== */
-  :root{
-    --bg1:#0b1020;      /* deep space */
-    --bg2:#0a0f2a;      /* abyss */
-    --neon:#60a5fa;     /* azure */
-    --neon-2:#22d3ee;   /* cyan */
-    --neon-3:#a78bfa;   /* violet */
-    --card:#0f172a80;   /* glass card */
-    --text:#e5f1ff;     /* bright text */
-    --muted:#9fb2d1;    /* secondary */
-    --grid:#163258;     /* grid lines */
-    --shadow:0 20px 60px rgba(0,0,0,.45);
-  }
+  <style>
+    /* =========================
+       THEME: Futuristic / IT
+       ========================= */
+    :root{
+      --bg1:#0b1020;      /* deep space */
+      --bg2:#0a0f2a;      /* abyss */
+      --neon:#60a5fa;     /* azure */
+      --neon-2:#22d3ee;   /* cyan */
+      --neon-3:#a78bfa;   /* violet */
+      --card:#0f172a99;   /* glass card (semi) */
+      --text:#e5f1ff;     /* bright text */
+      --muted:#9fb2d1;    /* secondary */
+      --border:#93c5fd40; /* faint border */
+      --shadow:0 22px 70px rgba(0,0,0,.46);
+    }
 
-  *{box-sizing:border-box}
-  html,body{height:100%}
-  body{
-    margin:0;
-    color:var(--text);
-    font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Helvetica Neue", "Noto Sans", sans-serif;
-    overflow-x:hidden;
-    background: radial-gradient(1200px 1200px at 20% 10%, #0d1a3a 0%, transparent 60%),
-                radial-gradient(900px 900px at 80% 90%, #111b3f 0%, transparent 70%),
-                linear-gradient(180deg, var(--bg2), var(--bg1));
-  }
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
+    body{
+      margin:0;
+      color:var(--text);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Helvetica Neue", "Noto Sans", sans-serif;
+      background:
+        radial-gradient(1200px 1200px at 20% 10%, #0d1a3a 0%, transparent 60%),
+        radial-gradient(900px 900px at 80% 90%, #111b3f 0%, transparent 70%),
+        linear-gradient(180deg, var(--bg2), var(--bg1));
+      overflow-x:hidden;
+    }
 
-  /* ====== BACKGROUND LAYERS ====== */
-  /* Animated gradient mesh glow */
-  .mesh {
-    position: fixed; inset: -20vmax;
-    background:
-      radial-gradient(40vmax 40vmax at 20% 30%, rgba(96,165,250,.18), transparent 60%),
-      radial-gradient(45vmax 45vmax at 80% 70%, rgba(34,211,238,.16), transparent 65%),
-      radial-gradient(35vmax 35vmax at 50% 10%, rgba(167,139,250,.16), transparent 60%);
-    filter: blur(36px) saturate(120%);
-    animation: drift 24s ease-in-out infinite alternate;
-    pointer-events:none;
-    z-index:-3;
-  }
-  @keyframes drift{
-    0%{ transform: translate3d(-2%, -1%, 0) scale(1); }
-    100%{ transform: translate3d(2%, 1%, 0) scale(1.05); }
-  }
+    /* ------- BACKGROUND LAYERS ------- */
 
-  /* Subtle scanlines for tech feel */
-  .scanlines{
-    position:fixed; inset:0;
-    background-image: repeating-linear-gradient(180deg, rgba(255,255,255,.035) 0px, rgba(255,255,255,.035) 1px, transparent 2px, transparent 4px);
-    mix-blend-mode: overlay;
-    opacity:.4;
-    pointer-events:none;
-    z-index:-2;
-  }
+    /* Animated gradient mesh */
+    .mesh{
+      position: fixed; inset: -20vmax;
+      pointer-events:none; z-index:-3;
+      background:
+        radial-gradient(40vmax 40vmax at 20% 30%, rgba(96,165,250,.18), transparent 60%),
+        radial-gradient(45vmax 45vmax at 80% 70%, rgba(34,211,238,.16), transparent 65%),
+        radial-gradient(35vmax 35vmax at 50% 10%, rgba(167,139,250,.16), transparent 60%);
+      filter: blur(36px) saturate(120%);
+      animation: drift 24s ease-in-out infinite alternate;
+    }
+    @keyframes drift{
+      0%{ transform: translate3d(-2%, -1%, 0) scale(1); }
+      100%{ transform: translate3d(2%, 1%, 0) scale(1.05); }
+    }
 
-  /* Neon grid */
-  .grid{
-    position:fixed; inset:0;
-    background:
-      linear-gradient(transparent 0 calc(100% - 35vh), rgba(0,0,0,.6) calc(100% - 35vh) 100%),
-      radial-gradient(80vh 30vh at 50% 100%, rgba(96,165,250,.25), transparent 60%),
-      repeating-linear-gradient(0deg, transparent 0 46px, rgba(34,211,238,.07) 46px 47px),
-      repeating-linear-gradient(90deg, transparent 0 46px, rgba(34,211,238,.07) 46px 47px);
-    transform: perspective(900px) rotateX(60deg);
-    transform-origin: 50% 100%;
-    filter: drop-shadow(0 0 6px rgba(96,165,250,.35));
-    z-index:-1;
-    animation: scan 12s linear infinite;
-  }
-  @keyframes scan{
-    from{ background-position: 0 0, 0 0, 0 0, 0 0; }
-    to  { background-position: 0 0, 0 0, 0 46px, 46px 0; }
-  }
+    /* Scanlines overlay */
+    .scanlines{
+      position:fixed; inset:0; z-index:-2; pointer-events:none;
+      background-image:
+        repeating-linear-gradient(180deg,
+          rgba(255,255,255,.035) 0px,
+          rgba(255,255,255,.035) 1px,
+          transparent 2px,
+          transparent 4px);
+      mix-blend-mode: overlay;
+      opacity:.4;
+    }
 
-  /* ====== LAYOUT ====== */
-  .wrap{ padding: clamp(20px, 4vw, 40px); }
-  .card{
-    max-width: 860px;
-    margin: clamp(24px, 6vw, 64px) auto;
-    background: var(--card);
-    border-radius: 18px;
-    backdrop-filter: blur(14px) saturate(120%);
-    border: 1px solid rgba(147,197,253,.25);
-    box-shadow: var(--shadow);
-    overflow:hidden;
-    position:relative;
-  }
-  /* Neon border pulse */
-  .card::before{
-    content:"";
-    position:absolute; inset:-2px;
-    border-radius: inherit;
-    background: conic-gradient(from 180deg at 50% 50%, var(--neon), var(--neon-2), var(--neon-3), var(--neon));
-    filter: blur(10px) opacity(.65);
-    z-index:-1;
-    animation: spin 10s linear infinite;
-    mask: linear-gradient(#000 0 0) exclude, linear-gradient(#000 0 0);
-  }
-  @keyframes spin{ to{ transform: rotate(360deg); } }
+    /* Canvas for particle network sits on top of mesh, under content */
+    #fx{ position:fixed; inset:0; z-index:-1; }
 
-  header{
-    text-align:center;
-    padding: 28px 24px 10px;
-  }
-  h1{
-    margin: 10px 0 6px;
-    font-size: clamp(28px, 4vw, 40px);
-    letter-spacing:.4px;
-    text-shadow: 0 0 18px rgba(96,165,250,.35);
-  }
-  .subtitle{
-    margin:0 0 18px;
-    color:var(--muted);
-    font-size: 14px;
-  }
+    /* ------- LAYOUT ------- */
 
-  /* Avatar */
-  .profile{ display:flex; justify-content:center; margin-top:-58px; }
-  .ring{
-    width: 148px; height:148px; padding:4px; border-radius:50%;
-    background: conic-gradient(from 120deg, var(--neon), var(--neon-3), var(--neon-2), var(--neon));
-    box-shadow: 0 10px 30px rgba(34,211,238,.35);
-    animation: ringGlow 5.5s ease-in-out infinite;
-  }
-  @keyframes ringGlow{
-    0%,100%{ filter: drop-shadow(0 0 10px rgba(96,165,250,.35)); transform: scale(1); }
-    50%    { filter: drop-shadow(0 0 18px rgba(167,139,250,.45)); transform: scale(1.03); }
-  }
-  .ring img{
-    width:100%; height:100%; border-radius:50%;
-    display:block; object-fit:cover; border:3px solid #0b132b;
-    background:#0b132b;
-  }
+    .wrap{ padding: clamp(20px, 5vw, 48px); }
+    .card{
+      max-width: 880px;
+      margin: clamp(24px, 6vw, 72px) auto;
+      background: var(--card);
+      border-radius: 18px;
+      border: 1px solid var(--border);
+      backdrop-filter: blur(14px) saturate(120%);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      position:relative;
 
-  /* Content */
-  main{ padding: 0 22px 26px; }
-  .info{ display:grid; gap:10px; }
-  .row{ display:flex; gap:8px; align-items:baseline; }
-  .label{ min-width:190px; color:#bcd4ff; font-weight:600; }
-  .value{ color:#e8f1ff; }
+      /* soft lift on hover */
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+    .card:hover{
+      transform: translateY(-6px);
+      box-shadow: 0 28px 88px rgba(0, 64, 128, .36);
+    }
 
-  /* Footer */
-  footer{ text-align:center; color:var(--muted); font-size:12px; padding: 6px 0 10px; }
+    /* Neon border glow ring */
+    .card::before{
+      content:"";
+      position:absolute; inset:-2px;
+      border-radius: inherit;
+      background: conic-gradient(from 180deg at 50% 50%, var(--neon), var(--neon-2), var(--neon-3), var(--neon));
+      filter: blur(10px) opacity(.7);
+      z-index:-1;
+      animation: spin 10s linear infinite;
+      /* show as border only */
+      padding:2px;
+      -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor; /* Safari/Chrome */
+              mask-composite: exclude; /* Firefox */
+    }
+    @keyframes spin{ to{ transform: rotate(360deg); } }
 
-  /* Hover lift */
-  .card{ transition: transform .25s ease, box-shadow .25s ease; }
-  .card:hover{ transform: translateY(-6px); box-shadow: 0 26px 80px rgba(0, 64, 128, .35); }
+    header{ text-align:center; padding: 32px 22px 12px; }
+    h1{
+      margin: 10px 0 6px;
+      font-size: clamp(28px, 4vw, 42px);
+      letter-spacing:.3px;
+      text-shadow: 0 0 18px rgba(96,165,250,.35);
+    }
+    .subtitle{
+      margin:0 0 18px;
+      color:var(--muted);
+      font-size: 14px;
+    }
 
-  /* Reduced motion */
-  @media (prefers-reduced-motion: reduce){
-    .mesh,.grid,.card::before,.ring{ animation: none !important; }
-  }
-</style>
+    /* Avatar ring + soft hover */
+    .profile{ display:flex; justify-content:center; margin-top:-60px; }
+    .ring{
+      width: 150px; height:150px;
+      border-radius:50%;
+      padding:4px;
+      background: conic-gradient(from 120deg, var(--neon), var(--neon-3), var(--neon-2), var(--neon));
+      box-shadow: 0 10px 30px rgba(34,211,238,.35);
+      animation: ringGlow 5.5s ease-in-out infinite;
+      transition: transform .25s ease;
+    }
+    .ring:hover{ transform: scale(1.03); }
+    @keyframes ringGlow{
+      0%,100%{ filter: drop-shadow(0 0 10px rgba(96,165,250,.35)); transform: scale(1); }
+      50%    { filter: drop-shadow(0 0 18px rgba(167,139,250,.45)); transform: scale(1.02); }
+    }
+    .ring img{
+      width:100%; height:100%; border-radius:50%;
+      display:block; object-fit:cover; border:3px solid #0b132b; background:#0b132b;
+    }
+
+    main{ padding: 0 22px 28px; }
+    .info{ display:grid; gap:10px; }
+    .row{ display:flex; gap:8px; align-items:baseline; flex-wrap:wrap; }
+    .label{ min-width:190px; color:#bcd4ff; font-weight:600; }
+    .value{ color:#e8f1ff; }
+
+    footer{ text-align:center; color:var(--muted); font-size:12px; padding: 6px 0 12px; }
+
+    /* ------- Reduced motion: honor user settings ------- */
+    @media (prefers-reduced-motion: reduce){
+      .mesh, .card::before, .ring { animation: none !important; }
+      .card, .ring { transition: none !important; }
+    }
+  </style>
 </head>
 <body>
-  <!-- BACKGROUND layers -->
+  <!-- BACKGROUND -->
   <div class="mesh" aria-hidden="true"></div>
-  <canvas id="fx" class="fx" aria-hidden="true"></canvas>
+  <canvas id="fx" aria-hidden="true"></canvas>
   <div class="scanlines" aria-hidden="true"></div>
-  <div class="grid" aria-hidden="true"></div>
 
   <!-- CONTENT -->
   <div class="wrap">
-    <section class="card">
+    <section class="card" role="region" aria-label="Profile card">
       <header>
         <div class="profile">
           <div class="ring">
-            asset/ali.jpg
+            <img src="asset/ali.jpg" alt="Ali Khan profile photo" loading="eager" />
           </div>
         </div>
         <h1>Ali Khan</h1>
@@ -196,115 +194,103 @@
         </div>
       </main>
 
-      <footer>© <span id="y"></span> Ali Khan • Futuristic theme</footer>
+      <footer>© <span id="y"></span> Ali Khan • Futuristic Theme</footer>
     </section>
   </div>
 
-<script>
-/* ========= Particle Network (cursor-reactive) ========= */
-const canvas = document.getElementById('fx');
-const ctx = canvas.getContext('2d', { alpha: true });
-let W, H, particles=[], mouse={x:-9999,y:-9999};
+  <!-- ========= Particle Network (cursor-reactive) ========= -->
+  <script>
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const canvas = document.getElementById('fx');
+    const ctx = canvas.getContext('2d', { alpha: true });
 
-function resize(){
-  W = canvas.width = window.innerWidth;
-  H = canvas.height = window.innerHeight;
-}
-resize();
-window.addEventListener('resize', resize);
-window.addEventListener('mousemove', e => { mouse.x=e.clientX; mouse.y=e.clientY; });
-window.addEventListener('mouseleave', () => { mouse.x=-9999; mouse.y=-9999; });
+    let W, H, particles = [], mouse = { x:-9999, y:-9999 };
 
-const DENSITY = 0.00012; // particles per pixel
-const MAX = () => Math.min(180, Math.floor(W*H*DENSITY));
-
-function init(){
-  particles.length = 0;
-  const n = MAX();
-  for(let i=0;i<n;i++){
-    particles.push({
-      x: Math.random()*W,
-      y: Math.random()*H,
-      vx: (Math.random()-.5)*0.4,
-      vy: (Math.random()-.5)*0.4,
-      r: Math.random()*1.6+0.4
-    });
-  }
-}
-init();
-window.addEventListener('resize', init);
-
-function step(){
-  ctx.clearRect(0,0,W,H);
-
-  // draw links
-  for(let i=0;i<particles.length;i++){
-    const p = particles[i];
-    p.x += p.vx; p.y += p.vy;
-
-    if(p.x<0||p.x>W) p.vx*=-1;
-    if(p.y<0||p.y>H) p.vy*=-1;
-
-    // link to mouse
-    const dxm = p.x-mouse.x, dym = p.y-mouse.y;
-    const dm = Math.hypot(dxm,dym);
-    if(dm<140){
-      ctx.strokeStyle = `rgba(96,165,250,${1-dm/140})`;
-      ctx.lineWidth = 1;
-      ctx.beginPath();
-      ctx.moveTo(p.x,p.y);
-      ctx.lineTo(mouse.x,mouse.y);
-      ctx.stroke();
+    function resize(){
+      W = canvas.width = window.innerWidth;
+      H = canvas.height = window.innerHeight;
     }
+    resize();
+    addEventListener('resize', () => { resize(); if(!prefersReduced) init(); });
 
-    // link to neighbors (local vicinity)
-    for(let j=i+1;j<particles.length;j++){
-      const q = particles[j];
-      const dx = p.x-q.x, dy = p.y-q.y;
-      const d = dx*dx+dy*dy;
-      if(d < 75*75){
-        ctx.strokeStyle = `rgba(34,211,238,${1 - Math.sqrt(d)/75})`;
-        ctx.lineWidth = 0.6;
-        ctx.beginPath();
-        ctx.moveTo(p.x,p.y);
-        ctx.lineTo(q.x,q.y);
-        ctx.stroke();
+    addEventListener('mousemove', e => { mouse.x = e.clientX; mouse.y = e.clientY; });
+    addEventListener('mouseleave', () => { mouse.x = -9999; mouse.y = -9999; });
+
+    const DENSITY = 0.00010; // particles per pixel (tune for performance)
+    const MAX = () => Math.min(160, Math.floor(W * H * DENSITY));
+
+    function init(){
+      particles.length = 0;
+      const n = MAX();
+      for(let i=0;i<n;i++){
+        particles.push({
+          x: Math.random() * W,
+          y: Math.random() * H,
+          vx: (Math.random() - .5) * 0.4,
+          vy: (Math.random() - .5) * 0.4,
+          r: Math.random() * 1.6 + 0.4
+        });
       }
     }
-  }
 
-  // dots
-  for(const p of particles){
-    ctx.fillStyle = 'rgba(167,139,250,.9)';
-    ctx.beginPath();
-    ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
-    ctx.fill();
-  }
+    function step(){
+      if (prefersReduced) return; // respect reduced motion: no animation
 
-  requestAnimationFrame(step);
-}
-requestAnimationFrame(step);
+      ctx.clearRect(0,0,W,H);
 
-// Footer year
-document.getElementById('y').textContent = new Date().getFullYear();
-</script>
-</body>
-</html>
+      // update + neighbor links
+      for(let i=0;i<particles.length;i++){
+        const p = particles[i];
+        p.x += p.vx; p.y += p.vy;
+        if(p.x<0||p.x>W) p.vx*=-1;
+        if(p.y<0||p.y>H) p.vy*=-1;
 
+        // link to mouse
+        const dxm = p.x - mouse.x, dym = p.y - mouse.y;
+        const dm = Math.hypot(dxm, dym);
+        if(dm < 140){
+          ctx.strokeStyle = `rgba(96,165,250,${1 - dm/140})`;
+          ctx.lineWidth = 1;
+          ctx.beginPath();
+          ctx.moveTo(p.x,p.y);
+          ctx.lineTo(mouse.x,mouse.y);
+          ctx.stroke();
+        }
 
+        // link to nearby particles
+        for(let j=i+1;j<particles.length;j++){
+          const q = particles[j];
+          const dx = p.x - q.x, dy = p.y - q.y;
+          const d2 = dx*dx + dy*dy;
+          const d = Math.sqrt(d2);
+          if(d < 75){
+            ctx.strokeStyle = `rgba(34,211,238,${1 - d/75})`;
+            ctx.lineWidth = .6;
+            ctx.beginPath();
+            ctx.moveTo(p.x,p.y);
+            ctx.lineTo(q.x,q.y);
+            ctx.stroke();
+          }
+        }
+      }
 
+      // draw dots
+      for(const p of particles){
+        ctx.fillStyle = 'rgba(167,139,250,.9)';
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fill();
+      }
 
+      requestAnimationFrame(step);
+    }
 
-
-
-
-
-
-
-
-
-
-
+    if(!prefersReduced){
+      init();
+      requestAnimationFrame(step);
+    } else {
+      // still show a faint static starfield for reduced motion users
+      init();
 
 
 
